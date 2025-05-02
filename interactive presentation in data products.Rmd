@@ -1,0 +1,58 @@
+---
+title: "Interactive Data Visualization with Plotly"
+author: "Odysseas Fokas"
+date: "2/5/2025"
+output:
+  ioslides_presentation:
+    widescreen: true
+    self_contained: true
+---
+
+## Slide 1: Introduction
+
+Welcome to this interactive presentation! Today we'll explore the **iris** dataset visually.
+
+---
+
+## Slide 2: Interactive Scatter Plot
+
+```{r plotly-scatter, echo=FALSE, message=FALSE}
+library(plotly)
+p_scatter <- plot_ly(
+  data = iris,
+  x = ~Sepal.Length,
+  y = ~Sepal.Width,
+  color = ~Species,
+  type = 'scatter',
+  mode = 'markers',
+  marker = list(size = 12, opacity = 0.8)
+) %>%
+  layout(title = 'Iris Sepal Dimensions',
+         xaxis = list(title = 'Sepal Length'),
+         yaxis = list(title = 'Sepal Width'))
+p_scatter
+```
+
+---
+
+## Slide 3: Creative Histogram
+
+```{r plotly-histogram, echo=FALSE}
+p_hist <- plot_ly(
+  data = iris,
+  x = ~Petal.Length,
+  type = 'histogram',
+  marker = list(color = 'rgba(100,200,102,0.7)')
+) %>%
+  layout(title = 'Distribution of Iris Petal Length',
+         xaxis = list(title = 'Petal Length'),
+         yaxis = list(title = 'Count'))
+p_hist
+```
+
+
+---
+
+## Slide 4: Thank You
+
+Thank you for viewing this presentation!
